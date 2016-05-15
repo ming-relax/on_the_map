@@ -1,2 +1,3 @@
 github "Alamofire/Alamofire" ~> 3.3
 github "SwiftyJSON/SwiftyJSON"
+github "ashleymills/Reachability.swift"
