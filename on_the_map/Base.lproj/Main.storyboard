@@ -85,7 +85,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.84904695679999997" green="0.84904695679999997" blue="0.84904695679999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="M5y-vb-fgp"/>
@@ -150,18 +150,18 @@
                                 <exclude reference="7FP-Us-Jf6"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="CU9-Jc-aGI"/>
-                                <exclude reference="lgz-ZP-zdX"/>
-                                <exclude reference="Meb-Gt-654"/>
-                                <exclude reference="wVL-qb-fqp"/>
-                                <exclude reference="XFJ-cU-0Jy"/>
-                                <exclude reference="pm0-fX-sFF"/>
-                                <exclude reference="9Rr-qi-1o3"/>
-                                <exclude reference="bvF-Om-vcf"/>
-                                <exclude reference="ZD2-0t-94u"/>
-                                <exclude reference="qCS-JM-Ieg"/>
                                 <exclude reference="cKZ-nr-vKB"/>
                                 <exclude reference="n2I-LA-cjA"/>
+                                <exclude reference="9Rr-qi-1o3"/>
+                                <exclude reference="bvF-Om-vcf"/>
+                                <exclude reference="XFJ-cU-0Jy"/>
+                                <exclude reference="pm0-fX-sFF"/>
+                                <exclude reference="ZD2-0t-94u"/>
+                                <exclude reference="qCS-JM-Ieg"/>
+                                <exclude reference="Meb-Gt-654"/>
+                                <exclude reference="wVL-qb-fqp"/>
+                                <exclude reference="CU9-Jc-aGI"/>
+                                <exclude reference="lgz-ZP-zdX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -173,18 +173,18 @@
                                 <include reference="7FP-Us-Jf6"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="CU9-Jc-aGI"/>
-                                <include reference="lgz-ZP-zdX"/>
-                                <include reference="Meb-Gt-654"/>
-                                <include reference="wVL-qb-fqp"/>
-                                <include reference="XFJ-cU-0Jy"/>
-                                <include reference="pm0-fX-sFF"/>
-                                <include reference="9Rr-qi-1o3"/>
-                                <include reference="bvF-Om-vcf"/>
-                                <include reference="ZD2-0t-94u"/>
-                                <include reference="qCS-JM-Ieg"/>
                                 <include reference="cKZ-nr-vKB"/>
                                 <exclude reference="n2I-LA-cjA"/>
+                                <include reference="9Rr-qi-1o3"/>
+                                <include reference="bvF-Om-vcf"/>
+                                <include reference="XFJ-cU-0Jy"/>
+                                <include reference="pm0-fX-sFF"/>
+                                <include reference="ZD2-0t-94u"/>
+                                <include reference="qCS-JM-Ieg"/>
+                                <include reference="Meb-Gt-654"/>
+                                <include reference="wVL-qb-fqp"/>
+                                <include reference="CU9-Jc-aGI"/>
+                                <include reference="lgz-ZP-zdX"/>
                             </mask>
                         </variation>
                     </view>

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Reachability
+import SwiftyJSON
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -19,6 +20,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var email: String?
     var password: String?
+    
+    var userKey: String?
+    var sessionID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +43,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField == emailTextField {
-            email = textField.text
+            email = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
         } else if textField == passwordTextField {
-            password = textField.text
+            password = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
         }
         return true
     }
@@ -59,8 +63,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loginToUdacity() {
-        print(email)
-        print(password)
+//        print(email)
+//        print(password)
         var errorMessage: String?
         
         let reachability: Reachability
@@ -98,9 +102,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         Alamofire.request(.POST, "https://www.udacity.com/api/session", parameters: parameters, encoding: .JSON)
             .responseString { response in
-                print(response.data)
-                print(response.result)
-                print(response.result.value)
+                switch response.result {
+                case .Success:
+                    if let result = response.result.value {
+                        let jsonString = result.substringFromIndex(result.startIndex.advancedBy(5))
+                        
+                        if let dataFromString = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                            
+                            let jsonResult = JSON(data: dataFromString)
+                            if jsonResult["status"] == 403 {
+                                self.displayErrorMessage("Email or Passowrd is wrong")
+                            } else {
+                                self.userKey = jsonResult["account"]["key"].string
+                                self.sessionID = jsonResult["session"]["id"].string
+                                print(jsonResult)
+                                print(self.userKey)
+                                print(self.sessionID)
+                                print("OK!")
+                                
+                            }
+                        }
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
         }
         
 
