@@ -118,6 +118,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 print(jsonResult)
                                 print(self.userKey)
                                 print(self.sessionID)
+                                let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
+                                self.presentViewController(vc, animated: true, completion: nil)
                                 print("OK!")
                                 
                             }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2AA09D1CE8C7A200DF0834 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */; };
+		3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56931E1CEB640700ECE308 /* StudentInformation.swift */; };
 		3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */; };
 		3AD5BECB1CDF63370050C8C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BECA1CDF63370050C8C3 /* LoginViewController.swift */; };
 		3AD5BECE1CDF63370050C8C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD5BECC1CDF63370050C8C3 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
+		3A56931E1CEB640700ECE308 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		3AD5BEC51CDF63370050C8C3 /* on_the_map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = on_the_map.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD5BECA1CDF63370050C8C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3AD5BECF1CDF63370050C8C3 /* Assets.xcassets */,
 				3AD5BED11CDF63370050C8C3 /* LaunchScreen.storyboard */,
 				3AD5BED41CDF63370050C8C3 /* Info.plist */,
+				3A56931E1CEB640700ECE308 /* StudentInformation.swift */,
 			);
 			path = on_the_map;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */,
 				3AD5BECB1CDF63370050C8C3 /* LoginViewController.swift in Sources */,
 				3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */,
 			);

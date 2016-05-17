@@ -197,9 +197,65 @@
             </objects>
             <point key="canvasLocation" x="-25.5" y="115"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vnK-nZ-Bsu">
+            <objects>
+                <viewController id="IBR-TI-FX5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aAj-6u-zMT"/>
+                        <viewControllerLayoutGuide type="bottom" id="KFK-3j-VQl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ec4-Fs-xzD">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="list_icon" id="Cw6-Pr-Kgy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E41-0R-YqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1375.5" y="618"/>
+        </scene>
+        <!--map-->
+        <scene sceneID="Z4p-Um-V3c">
+            <objects>
+                <viewController title="map" id="FVj-As-8mx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7tQ-Lg-FKn"/>
+                        <viewControllerLayoutGuide type="bottom" id="SWk-x6-YvU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TmX-MK-150">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="map_icon" id="Zp6-PX-GJY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVU-Y9-A7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1375.5" y="-60"/>
+        </scene>
+        <!--On The Map-->
+        <scene sceneID="gWJ-Kd-bRM">
+            <objects>
+                <tabBarController storyboardIdentifier="OnTheMap" title="On The Map" id="sun-TV-kEf" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="LXW-AS-bkP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="FVj-As-8mx" kind="relationship" relationship="viewControllers" id="bIL-6D-Ybc"/>
+                        <segue destination="IBR-TI-FX5" kind="relationship" relationship="viewControllers" id="sVl-ly-5P8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULZ-Kl-RKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="115"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="list_icon" width="32" height="32"/>
         <image name="login_background" width="750" height="1334"/>
+        <image name="map_icon" width="32" height="32"/>
         <image name="udacity_logo" width="136" height="136"/>
     </resources>
 </document>
