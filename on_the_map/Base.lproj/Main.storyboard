@@ -62,7 +62,7 @@
                                     <constraint firstAttribute="width" constant="200" id="lDf-jB-jUQ"/>
                                 </constraints>
                                 <color key="textColor" red="0.84904695680628273" green="0.84904695680628273" blue="0.84904695680628273" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="width" constant="200" id="fnK-h6-2F2"/>
                                 </constraints>
                                 <color key="textColor" red="0.84904695679999997" green="0.84904695679999997" blue="0.84904695679999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -106,6 +106,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Wxv-o1-xGJ"/>
                                     <constraint firstAttribute="width" constant="200" id="cjV-aM-4Nb"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Login to Udacity">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -206,6 +207,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KFK-3j-VQl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ec4-Fs-xzD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -224,6 +226,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SWk-x6-YvU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TmX-MK-150">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
