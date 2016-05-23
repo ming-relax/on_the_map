@@ -11,6 +11,7 @@ import UIKit
 
 class TableTabbedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,13 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    @IBAction func pressRefresh(sender: AnyObject) {
+        StudentInformation.initStudentsFromParse {
+            self.tableView.reloadData()
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(StudentInformation.students.count)
         return StudentInformation.students.count
     }
     
@@ -32,11 +38,16 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         let lastName = StudentInformation.students[indexPath.row].lastName!
         let name = "\(firstName) \(lastName)"
 
-        print(name)
         cell.imageView!.image = icon
         cell.textLabel!.text = name
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let url = NSURL(string: StudentInformation.students[indexPath.row].mediaURL!) {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
     
 }

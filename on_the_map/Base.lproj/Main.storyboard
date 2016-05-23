@@ -262,10 +262,17 @@
                     <navigationItem key="navigationItem" title="On The Map" id="kL1-4s-7MV">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="p6M-jn-iwK"/>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="if2-8R-8Bg"/>
+                            <barButtonItem systemItem="refresh" id="if2-8R-8Bg">
+                                <connections>
+                                    <action selector="pressRefresh:" destination="IBR-TI-FX5" id="8u1-U1-sxn"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="pin" id="7pj-pT-49z"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="dQ0-hF-O2i" id="cof-j3-tJ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E41-0R-YqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
