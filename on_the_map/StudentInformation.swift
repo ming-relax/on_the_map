@@ -40,7 +40,7 @@ struct StudentInformation {
     
     static var students: [StudentInformation] = []
     
-    static func initStudentsFromParse() {
+    static func initStudentsFromParse(completionHandler: () -> Void) {
         let headers = [
             "X-Parse-Application-Id": "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr",
             "X-Parse-REST-API-Key": "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
@@ -50,7 +50,6 @@ struct StudentInformation {
                 let json = JSON(response.result.value!)
                 let jsonResults = json["results"]
                 for (_,subJSON):(String,JSON) in jsonResults {
-//                    print(subJSON)
                     let student = StudentInformation(studentLocation:
                         ["objectID": subJSON["objectId"].stringValue,
                             "uniqueKey": subJSON["uniqueKey"].stringValue,
@@ -65,7 +64,9 @@ struct StudentInformation {
                         "ACL": subJSON["ACL"].stringValue])
                     students.append(student)
                 }
-//                print(students.last)
+                dispatch_async(dispatch_get_main_queue()) {
+                    completionHandler()
+                }
         }
     }
 }

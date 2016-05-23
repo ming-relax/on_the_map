@@ -202,7 +202,7 @@
         <!--On The Map-->
         <scene sceneID="vnK-nZ-Bsu">
             <objects>
-                <viewController id="IBR-TI-FX5" sceneMemberID="viewController">
+                <viewController id="IBR-TI-FX5" customClass="TableTabbedViewController" customModule="on_the_map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aAj-6u-zMT"/>
                         <viewControllerLayoutGuide type="bottom" id="KFK-3j-VQl"/>
@@ -210,7 +210,54 @@
                     <view key="view" contentMode="scaleToFill" id="Ec4-Fs-xzD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dQ0-hF-O2i">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OnTheMapCell" id="2Ir-Cd-QwG">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ir-Cd-QwG" id="gQS-te-525">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IBR-TI-FX5" id="sOY-Yk-sBa"/>
+                                    <outlet property="delegate" destination="IBR-TI-FX5" id="bR9-S9-32d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dQ0-hF-O2i" secondAttribute="trailing" id="BKU-ZM-ckR"/>
+                            <constraint firstItem="KFK-3j-VQl" firstAttribute="top" secondItem="dQ0-hF-O2i" secondAttribute="bottom" id="aOe-Ll-ggF"/>
+                            <constraint firstItem="dQ0-hF-O2i" firstAttribute="leading" secondItem="Ec4-Fs-xzD" secondAttribute="leading" id="cX4-yl-okf"/>
+                            <constraint firstItem="dQ0-hF-O2i" firstAttribute="top" secondItem="aAj-6u-zMT" secondAttribute="bottom" id="w2R-bR-QZl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dQ0-hF-O2i"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BKU-ZM-ckR"/>
+                                <exclude reference="cX4-yl-okf"/>
+                                <exclude reference="w2R-bR-QZl"/>
+                                <exclude reference="aOe-Ll-ggF"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="dQ0-hF-O2i"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="BKU-ZM-ckR"/>
+                                <include reference="cX4-yl-okf"/>
+                                <include reference="w2R-bR-QZl"/>
+                                <include reference="aOe-Ll-ggF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="kL1-4s-7MV">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="p6M-jn-iwK"/>
@@ -252,7 +299,6 @@
         <!--On The Map-->
         <scene sceneID="gWJ-Kd-bRM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ULZ-Kl-RKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="OnTheMap" title="On The Map" id="sun-TV-kEf" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LXW-AS-bkP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -264,6 +310,7 @@
                         <segue destination="ONc-ZI-mAh" kind="relationship" relationship="viewControllers" id="sVl-ly-5P8"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULZ-Kl-RKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="115"/>
         </scene>
