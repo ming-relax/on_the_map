@@ -281,16 +281,47 @@
         <!--map-->
         <scene sceneID="Z4p-Um-V3c">
             <objects>
-                <viewController title="map" id="FVj-As-8mx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7tQ-Lg-FKn"/>
-                        <viewControllerLayoutGuide type="bottom" id="SWk-x6-YvU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TmX-MK-150">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                <viewController title="map" id="FVj-As-8mx" customClass="MapTabbedViewController" customModule="on_the_map" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableViewCell key="view" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7sH-TB-Jxj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7sH-TB-Jxj" id="92Z-t7-eKE">
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nd7-eb-jwz">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                </mapView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Nd7-eb-jwz" secondAttribute="bottom" id="a0I-so-h4p"/>
+                                <constraint firstItem="Nd7-eb-jwz" firstAttribute="top" secondItem="92Z-t7-eKE" secondAttribute="top" id="gZ5-5y-ZyO"/>
+                                <constraint firstAttribute="trailing" secondItem="Nd7-eb-jwz" secondAttribute="trailing" id="l7W-nD-Wb9"/>
+                                <constraint firstItem="Nd7-eb-jwz" firstAttribute="leading" secondItem="92Z-t7-eKE" secondAttribute="leading" id="qNo-io-I4C"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="Nd7-eb-jwz"/>
+                                </mask>
+                                <mask key="constraints">
+                                    <exclude reference="a0I-so-h4p"/>
+                                    <exclude reference="gZ5-5y-ZyO"/>
+                                    <exclude reference="l7W-nD-Wb9"/>
+                                    <exclude reference="qNo-io-I4C"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="subviews">
+                                    <include reference="Nd7-eb-jwz"/>
+                                </mask>
+                                <mask key="constraints">
+                                    <include reference="a0I-so-h4p"/>
+                                    <include reference="gZ5-5y-ZyO"/>
+                                    <include reference="l7W-nD-Wb9"/>
+                                    <include reference="qNo-io-I4C"/>
+                                </mask>
+                            </variation>
+                        </tableViewCellContentView>
+                    </tableViewCell>
                     <navigationItem key="navigationItem" title="On The Map" id="7bl-sV-jO9">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="xPu-H3-u4L"/>
                         <rightBarButtonItems>
@@ -298,6 +329,9 @@
                             <barButtonItem image="pin" id="IvR-et-lWa"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="Nd7-eb-jwz" id="MAs-RB-yIY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVU-Y9-A7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

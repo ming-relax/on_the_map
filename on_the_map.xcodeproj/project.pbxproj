@@ -19,6 +19,7 @@
 		3AD5BEF91CDF823D0050C8C3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5BEF81CDF823D0050C8C3 /* SwiftyJSON.framework */; };
 		3AD5BEFB1CDF836F0050C8C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5BEF61CDF76DD0050C8C3 /* Alamofire.framework */; };
 		3ADFE6BC1CF3372300BBE03B /* TableTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE6BB1CF3372300BBE03B /* TableTabbedViewController.swift */; };
+		3ADFE6BE1CF3524300BBE03B /* MapTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3AD5BEF61CDF76DD0050C8C3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		3AD5BEF81CDF823D0050C8C3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		3ADFE6BB1CF3372300BBE03B /* TableTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTabbedViewController.swift; sourceTree = "<group>"; };
+		3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTabbedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */,
 				3AD5BECA1CDF63370050C8C3 /* LoginViewController.swift */,
 				3AD5BECC1CDF63370050C8C3 /* Main.storyboard */,
+				3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */,
 				3ADFE6BB1CF3372300BBE03B /* TableTabbedViewController.swift */,
 				3AD5BECF1CDF63370050C8C3 /* Assets.xcassets */,
 				3AD5BED11CDF63370050C8C3 /* LaunchScreen.storyboard */,
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADFE6BE1CF3524300BBE03B /* MapTabbedViewController.swift in Sources */,
 				3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */,
 				3AD5BECB1CDF63370050C8C3 /* LoginViewController.swift in Sources */,
 				3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */,
