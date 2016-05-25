@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A25F7E51CF5F303001F9562 /* PostMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25F7E41CF5F303001F9562 /* PostMapViewController.swift */; };
 		3A2AA09D1CE8C7A200DF0834 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */; };
 		3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56931E1CEB640700ECE308 /* StudentInformation.swift */; };
 		3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A25F7E41CF5F303001F9562 /* PostMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMapViewController.swift; sourceTree = "<group>"; };
 		3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		3A56931E1CEB640700ECE308 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		3AD5BEC51CDF63370050C8C3 /* on_the_map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = on_the_map.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */,
 				3AD5BECA1CDF63370050C8C3 /* LoginViewController.swift */,
 				3AD5BECC1CDF63370050C8C3 /* Main.storyboard */,
+				3A25F7E41CF5F303001F9562 /* PostMapViewController.swift */,
 				3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */,
 				3ADFE6BB1CF3372300BBE03B /* TableTabbedViewController.swift */,
 				3AD5BECF1CDF63370050C8C3 /* Assets.xcassets */,
@@ -303,6 +306,7 @@
 				3ADFE6BE1CF3524300BBE03B /* MapTabbedViewController.swift in Sources */,
 				3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */,
 				3AD5BECB1CDF63370050C8C3 /* LoginViewController.swift in Sources */,
+				3A25F7E51CF5F303001F9562 /* PostMapViewController.swift in Sources */,
 				3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */,
 				3ADFE6BC1CF3372300BBE03B /* TableTabbedViewController.swift in Sources */,
 			);

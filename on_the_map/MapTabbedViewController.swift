@@ -22,6 +22,13 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    
+    @IBAction func postMap(sender: AnyObject) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostMap")
+        presentViewController(vc!, animated: true, completion: nil)
+
+    }
+    
     var currentAnnotations: [StudentAnnotation] = []
     
     override func viewDidLoad() {

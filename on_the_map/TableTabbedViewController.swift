@@ -25,6 +25,11 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    @IBAction func postMap(sender: AnyObject) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostMap")
+        presentViewController(vc!, animated: true, completion: nil)
+
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return StudentInformation.students.count
     }
