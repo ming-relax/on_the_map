@@ -83,6 +83,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+        email = "humings@gmail.com"
+        password = "bertrandoosc0$"
         
         if email == nil || email == "" || password == nil || password == "" {
             errorMessage = "Email or Password is empty"
