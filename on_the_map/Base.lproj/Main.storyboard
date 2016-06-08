@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -393,9 +394,6 @@
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="49" y="50" width="97" height="30"/>
-                                                </variation>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEG-Ny-Kff">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -409,8 +407,7 @@
                                                         <exclude reference="6cD-V3-FW8"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="49" y="94" width="97" height="30"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="constraints">
                                                         <include reference="6cD-V3-FW8"/>
                                                     </mask>
@@ -457,34 +454,33 @@
                                                 <exclude reference="oTJ-pN-y1x"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="KDG-BY-xA5"/>
-                                                <exclude reference="SET-VI-DtH"/>
-                                                <exclude reference="dO3-Rs-8Au"/>
-                                                <exclude reference="hQK-AR-hQb"/>
-                                                <exclude reference="knx-6u-AtQ"/>
                                                 <exclude reference="7wR-Vl-DZ0"/>
                                                 <exclude reference="RTG-PH-n4G"/>
                                                 <exclude reference="lhT-jv-j4v"/>
                                                 <exclude reference="tqD-nc-ko4"/>
+                                                <exclude reference="knx-6u-AtQ"/>
+                                                <exclude reference="KDG-BY-xA5"/>
+                                                <exclude reference="SET-VI-DtH"/>
+                                                <exclude reference="dO3-Rs-8Au"/>
+                                                <exclude reference="hQK-AR-hQb"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="105" y="6" width="230" height="144"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="erh-UN-weB"/>
                                                 <include reference="AEG-Ny-Kff"/>
                                                 <include reference="oTJ-pN-y1x"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="KDG-BY-xA5"/>
-                                                <include reference="SET-VI-DtH"/>
-                                                <include reference="dO3-Rs-8Au"/>
-                                                <include reference="hQK-AR-hQb"/>
-                                                <include reference="knx-6u-AtQ"/>
                                                 <include reference="7wR-Vl-DZ0"/>
                                                 <include reference="RTG-PH-n4G"/>
                                                 <include reference="lhT-jv-j4v"/>
                                                 <include reference="tqD-nc-ko4"/>
+                                                <include reference="knx-6u-AtQ"/>
+                                                <include reference="KDG-BY-xA5"/>
+                                                <include reference="SET-VI-DtH"/>
+                                                <include reference="dO3-Rs-8Au"/>
+                                                <include reference="hQK-AR-hQb"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -577,8 +573,7 @@
                                                 <exclude reference="MRP-Bh-YfV"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="112" y="51" width="177" height="30"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="MRP-Bh-YfV"/>
                                             </mask>

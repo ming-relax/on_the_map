@@ -39,14 +39,18 @@ class PostMapViewController: UIViewController {
                 }
                 let matchingItems = response.mapItems
                 if matchingItems.count <= 0 {
-                    self.displayErrorMessage("Cannot find our location")
+                    self.displayErrorMessage("Cannot find your location")
                 } else {
                     let item = matchingItems[0]
-                    
-                    let region = MKCoordinateRegionMake(item.placemark.coordinate, MKCoordinateSpanMake(0.05, 0.05))
+                    let coordinate = item.placemark.coordinate
+                    let region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.05, 0.05))
                     
                     self.submitStudentInfoMap.setRegion(region, animated: true)
-
+                    let studentAnnotation = StudentAnnotation(coordinate: coordinate, title: "", subtitle: "")
+                    self.submitStudentInfoMap.addAnnotation(studentAnnotation)
+                    StudentInformation.myself?.latitude = coordinate.latitude.description
+                    StudentInformation.myself?.longitude = coordinate.longitude.description
+                    StudentInformation.myself?.mapString = searchText
                 }
             }
             
@@ -57,6 +61,15 @@ class PostMapViewController: UIViewController {
     }
     
     @IBAction func submitStudentInfo(sender: AnyObject) {
+        print(StudentInformation.myself)
+        if let medialURL = submitStudentInfoTextField.text {
+            StudentInformation.myself?.mediaURL = medialURL
+            StudentInformation.postMyself {
+                print("Posted myself")
+            }
+        } else {
+            
+        }
     }
     
     @IBOutlet weak var findOnTheMapTop: UIView!
@@ -64,6 +77,8 @@ class PostMapViewController: UIViewController {
     @IBOutlet weak var findOnTheMapMiddle: UIView!
     
     @IBOutlet weak var findOnTheMapBottom: UIView!
+    
+    var myAnnotation: StudentAnnotation?
     
     func showSubmitStudentInfoUI() {
         submitStudentInfoTextField.enabled = true
