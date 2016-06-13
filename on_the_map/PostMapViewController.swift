@@ -66,9 +66,10 @@ class PostMapViewController: UIViewController {
             StudentInformation.myself?.mediaURL = medialURL
             StudentInformation.postMyself {
                 print("Posted myself")
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         } else {
-            
+            displayErrorMessage("Please fill in some information")
         }
     }
     

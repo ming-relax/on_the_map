@@ -81,11 +81,17 @@ struct StudentInformation {
         
         Alamofire.request(.POST, "https://api.parse.com/1/classes/StudentLocation", headers: headers, parameters: parameters, encoding: .JSON)
             .responseJSON { response in
-                print(response.result)
-                if let completionHandler = completionHandler {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        completionHandler()
+                switch response.result {
+                case .Success:
+                    print("Posted Student Location")
+                    if let completionHandler = completionHandler {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            completionHandler()
+                        }
                     }
+                case .Failure:
+                    print(response.result)
+                    print(parameters)
                 }
             }
         
@@ -115,6 +121,7 @@ struct StudentInformation {
                         "ACL": subJSON["ACL"].stringValue])
                     students.append(student)
                 }
+                print(students[0])
                 if let completionHandler = completionHandler {
                     dispatch_async(dispatch_get_main_queue()) {
                         completionHandler()
