@@ -82,7 +82,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.displayErrorMessage("Network not reachable")
             }
         }
-                
+        
         if email == nil || email == "" || password == nil || password == "" {
             errorMessage = "Email or Password is empty"
         }
