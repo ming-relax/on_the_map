@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import Alamofire
-import Reachability
-import SwiftyJSON
+
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-
     @IBOutlet weak var emailTextField: UITextField!
 
     @IBOutlet weak var passwordTextField: UITextField!
@@ -62,26 +59,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginToUdacity()
     }
     
-    func loginToUdacity() {
-//        print(email)
-//        print(password)
-        var errorMessage: String?
-        
-        let reachability: Reachability
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
+    func handleLoginOK(userKey: String) {
+        print("handleLoginOK: \(userKey)")
+        StudentInformation.initMyself(userKey)
+        let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
+        StudentInformation.initStudentsFromParse {
+            self.presentViewController(vc, animated: true, completion: nil)
         }
 
-        reachability.whenUnreachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            dispatch_async(dispatch_get_main_queue()) {
-                self.displayErrorMessage("Network not reachable")
-            }
-        }
+    }
+    
+    func handleLoginFailed(errorMsg: String) {
+        print("handleLoginFailed: \(errorMsg)")
+        displayErrorMessage(errorMsg)
+    }
+    
+    func loginToUdacity() {
+        var errorMessage: String?
         
         if email == nil || email == "" || password == nil || password == "" {
             errorMessage = "Email or Password is empty"
@@ -91,48 +85,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             displayErrorMessage(errorMessage)
         }
 
-        // login here
-        let parameters = [
-            "udacity": [
-                "username": email!,
-                "password": password!
-            ]
-        ]
-
-        Alamofire.request(.POST, "https://www.udacity.com/api/session", parameters: parameters, encoding: .JSON)
-            .responseString { response in
-                switch response.result {
-                case .Success:
-                    if let result = response.result.value {
-                        let jsonString = result.substringFromIndex(result.startIndex.advancedBy(5))
-                        
-                        if let dataFromString = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-                            
-                            let jsonResult = JSON(data: dataFromString)
-                            if jsonResult["status"] == 403 {
-                                self.displayErrorMessage("Email or Passowrd is wrong")
-                            } else {
-                                self.userKey = jsonResult["account"]["key"].string
-                                self.sessionID = jsonResult["session"]["id"].string
-                                print(jsonResult)
-                                print(self.userKey)
-                                print(self.sessionID)
-                                StudentInformation.initMyself(self.userKey!)
-                                
-                                let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
-                                StudentInformation.initStudentsFromParse({
-                                    self.presentViewController(vc, animated: true, completion: nil)
-                                    print("OK!")
-                                })
-                                
-                            }
-                        }
-                    }
-                case .Failure(let error):
-                    print(error)
-                }
-        }
-        
+        UdacityClient.login(email: email!, password: password!, completionHandler: handleLoginOK, errorHandler: handleLoginFailed)
 
     }
     

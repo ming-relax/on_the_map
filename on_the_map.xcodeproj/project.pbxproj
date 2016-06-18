@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0297591D1437AA0083C226 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0297581D1437AA0083C226 /* StudentData.swift */; };
+		3A02975B1D15A6010083C226 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02975A1D15A6010083C226 /* UdacityClient.swift */; };
 		3A25F7E51CF5F303001F9562 /* PostMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25F7E41CF5F303001F9562 /* PostMapViewController.swift */; };
-		3A2AA09D1CE8C7A200DF0834 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */; };
 		3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56931E1CEB640700ECE308 /* StudentInformation.swift */; };
 		3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */; };
 		3AD5BECB1CDF63370050C8C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BECA1CDF63370050C8C3 /* LoginViewController.swift */; };
@@ -17,8 +18,6 @@
 		3AD5BED31CDF63370050C8C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD5BED11CDF63370050C8C3 /* LaunchScreen.storyboard */; };
 		3AD5BEDE1CDF63370050C8C3 /* on_the_mapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BEDD1CDF63370050C8C3 /* on_the_mapTests.swift */; };
 		3AD5BEE91CDF63380050C8C3 /* on_the_mapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5BEE81CDF63380050C8C3 /* on_the_mapUITests.swift */; };
-		3AD5BEF91CDF823D0050C8C3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5BEF81CDF823D0050C8C3 /* SwiftyJSON.framework */; };
-		3AD5BEFB1CDF836F0050C8C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD5BEF61CDF76DD0050C8C3 /* Alamofire.framework */; };
 		3ADFE6BC1CF3372300BBE03B /* TableTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE6BB1CF3372300BBE03B /* TableTabbedViewController.swift */; };
 		3ADFE6BE1CF3524300BBE03B /* MapTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */; };
 /* End PBXBuildFile section */
@@ -41,8 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A0297581D1437AA0083C226 /* StudentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
+		3A02975A1D15A6010083C226 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		3A25F7E41CF5F303001F9562 /* PostMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMapViewController.swift; sourceTree = "<group>"; };
-		3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		3A56931E1CEB640700ECE308 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		3AD5BEC51CDF63370050C8C3 /* on_the_map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = on_the_map.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,8 +57,6 @@
 		3AD5BEE41CDF63380050C8C3 /* on_the_mapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = on_the_mapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD5BEE81CDF63380050C8C3 /* on_the_mapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = on_the_mapUITests.swift; sourceTree = "<group>"; };
 		3AD5BEEA1CDF63380050C8C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AD5BEF61CDF76DD0050C8C3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		3AD5BEF81CDF823D0050C8C3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		3ADFE6BB1CF3372300BBE03B /* TableTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTabbedViewController.swift; sourceTree = "<group>"; };
 		3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTabbedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,9 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2AA09D1CE8C7A200DF0834 /* Reachability.framework in Frameworks */,
-				3AD5BEFB1CDF836F0050C8C3 /* Alamofire.framework in Frameworks */,
-				3AD5BEF91CDF823D0050C8C3 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +89,6 @@
 		3AD5BEBC1CDF63370050C8C3 = {
 			isa = PBXGroup;
 			children = (
-				3A2AA09C1CE8C7A200DF0834 /* Reachability.framework */,
-				3AD5BEF81CDF823D0050C8C3 /* SwiftyJSON.framework */,
-				3AD5BEF61CDF76DD0050C8C3 /* Alamofire.framework */,
 				3AD5BEC71CDF63370050C8C3 /* on_the_map */,
 				3AD5BEDC1CDF63370050C8C3 /* on_the_mapTests */,
 				3AD5BEE71CDF63380050C8C3 /* on_the_mapUITests */,
@@ -119,6 +111,7 @@
 			children = (
 				3AD5BEC81CDF63370050C8C3 /* AppDelegate.swift */,
 				3AD5BECA1CDF63370050C8C3 /* LoginViewController.swift */,
+				3A02975A1D15A6010083C226 /* UdacityClient.swift */,
 				3AD5BECC1CDF63370050C8C3 /* Main.storyboard */,
 				3A25F7E41CF5F303001F9562 /* PostMapViewController.swift */,
 				3ADFE6BD1CF3524300BBE03B /* MapTabbedViewController.swift */,
@@ -127,6 +120,7 @@
 				3AD5BED11CDF63370050C8C3 /* LaunchScreen.storyboard */,
 				3AD5BED41CDF63370050C8C3 /* Info.plist */,
 				3A56931E1CEB640700ECE308 /* StudentInformation.swift */,
+				3A0297581D1437AA0083C226 /* StudentData.swift */,
 			);
 			path = on_the_map;
 			sourceTree = "<group>";
@@ -286,15 +280,12 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -303,8 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A02975B1D15A6010083C226 /* UdacityClient.swift in Sources */,
 				3ADFE6BE1CF3524300BBE03B /* MapTabbedViewController.swift in Sources */,
 				3A56931F1CEB640700ECE308 /* StudentInformation.swift in Sources */,
+				3A0297591D1437AA0083C226 /* StudentData.swift in Sources */,
 				3AD5BECB1CDF63370050C8C3 /* LoginViewController.swift in Sources */,
 				3A25F7E51CF5F303001F9562 /* PostMapViewController.swift in Sources */,
 				3AD5BEC91CDF63370050C8C3 /* AppDelegate.swift in Sources */,
