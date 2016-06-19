@@ -63,7 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print("handleLoginOK: \(userKey)")
         StudentInformation.initMyself(userKey)
         let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
-        StudentInformation.initStudentsFromParse {
+        StudentData.initStudentsFromParse {
             self.presentViewController(vc, animated: true, completion: nil)
         }
 
@@ -88,12 +88,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UdacityClient.login(email: email!, password: password!, completionHandler: handleLoginOK, errorHandler: handleLoginFailed)
 
     }
-    
-    func displayErrorMessage(message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(defaultAction)
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
 }
+
+extension LoginViewController: ErrorMessageDisplayer {}
 
