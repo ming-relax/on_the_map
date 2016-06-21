@@ -20,9 +20,12 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func pressRefresh(sender: AnyObject) {
-        StudentInformation.initStudentsFromParse {
+        StudentData.initStudentsFromParse {
             self.tableView.reloadData()
         }
+    }
+    @IBAction func pressLogout(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func postMap(sender: AnyObject) {
@@ -31,7 +34,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
 
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StudentInformation.students.count
+        return StudentData.students.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -39,10 +42,10 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCellWithIdentifier("OnTheMapCell", forIndexPath: indexPath)
         let icon = UIImage(named: "pin")
         
-        let firstName = StudentInformation.students[indexPath.row].firstName!
-        let lastName = StudentInformation.students[indexPath.row].lastName!
+        let firstName = StudentData.students[indexPath.row].firstName!
+        let lastName = StudentData.students[indexPath.row].lastName!
         let name = "\(firstName) \(lastName)"
-
+        
         cell.imageView!.image = icon
         cell.textLabel!.text = name
         
@@ -50,7 +53,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let url = NSURL(string: StudentInformation.students[indexPath.row].mediaURL!) {
+        if let url = NSURL(string: StudentData.students[indexPath.row].mediaURL!) {
             UIApplication.sharedApplication().openURL(url)
         }
     }

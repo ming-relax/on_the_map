@@ -263,7 +263,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="kL1-4s-7MV">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="p6M-jn-iwK"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="p6M-jn-iwK">
+                            <connections>
+                                <action selector="pressLogout:" destination="IBR-TI-FX5" id="Tiv-8e-e8X"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="if2-8R-8Bg">
                                 <connections>
@@ -331,7 +335,11 @@
                         </tableViewCellContentView>
                     </tableViewCell>
                     <navigationItem key="navigationItem" title="On The Map" id="7bl-sV-jO9">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="xPu-H3-u4L"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="xPu-H3-u4L">
+                            <connections>
+                                <action selector="pressLogout:" destination="FVj-As-8mx" id="G4z-8b-Ruj"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="XB5-I8-FrV">
                                 <connections>

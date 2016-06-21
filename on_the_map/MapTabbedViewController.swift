@@ -16,10 +16,14 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
 
     
     @IBAction func pressRefresh(sender: AnyObject) {
-        StudentInformation.initStudentsFromParse {
+        StudentData.initStudentsFromParse {
             self.map.removeAnnotations(self.currentAnnotations)
             self.addAnnotationsFromStudentInfo()
         }
+    }
+    
+    @IBAction func pressLogout(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -41,7 +45,7 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
     }
     
     func addAnnotationsFromStudentInfo() {
-        for student in StudentInformation.students {
+        for student in StudentData.students {
             let studentAnnotation = StudentAnnotation(
                 coordinate: CLLocationCoordinate2D(latitude: NSString(string: student.latitude!).doubleValue, longitude: NSString(string: student.longitude!).doubleValue),
                 title: "\(student.firstName!) \(student.lastName!)",

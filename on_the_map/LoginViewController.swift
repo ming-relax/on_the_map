@@ -63,6 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print("handleLoginOK: \(userKey)")
         StudentInformation.initMyself(userKey)
         let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
+        
         StudentData.initStudentsFromParse {
             self.presentViewController(vc, animated: true, completion: nil)
         }

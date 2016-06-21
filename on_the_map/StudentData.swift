@@ -37,7 +37,6 @@ struct StudentInformation {
         ACL = studentLocation["ACL"]
     }
     
-    static var students: [StudentInformation] = []
     static var myself: StudentInformation?
     
     static func initMyself(userKey: String) {
@@ -95,84 +94,34 @@ struct StudentInformation {
         //            }
         
     }
-    
-    static func initStudentsFromParse(completionHandler: (() -> Void)?) {
-        let headers = [
-            "X-Parse-Application-Id": "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr",
-            "X-Parse-REST-API-Key": "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
-        ]
-        //        Alamofire.request(.GET, "https://api.parse.com/1/classes/StudentLocation", headers: headers, parameters: ["limit": "100", "order": "-updatedAt"])
-        //            .responseJSON { response in
-        //                let json = JSON(response.result.value!)
-        //                let jsonResults = json["results"]
-        //                for (_,subJSON):(String,JSON) in jsonResults {
-        //                    let student = StudentInformation(studentLocation:
-        //                        ["objectID": subJSON["objectId"].stringValue,
-        //                            "uniqueKey": subJSON["uniqueKey"].stringValue,
-        //                        "firstName": subJSON["firstName"].stringValue,
-        //                        "lastName": subJSON["lastName"].stringValue,
-        //                    "mapString": subJSON["mapString"].stringValue,
-        //                        "mediaURL": subJSON["mediaURL"].stringValue,
-        //                    "latitude": subJSON["latitude"].stringValue,
-        //                        "longitude": subJSON["longitude"].stringValue,
-        //                            "createdAt": subJSON["createdAt"].stringValue,
-        //                        "updatedAt": subJSON["updatedAt"].stringValue,
-        //                        "ACL": subJSON["ACL"].stringValue])
-        //                    students.append(student)
-        //                }
-        //                print(students[0])
-        //                if let completionHandler = completionHandler {
-        //                    dispatch_async(dispatch_get_main_queue()) {
-        //                        completionHandler()
-        //                    }
-        //                }
-        //        }
-    }
 }
 
 class StudentData {
     static var students: [StudentInformation] = []
     
     static func initStudentsFromParse(completionHandler: (() -> Void)?) {
-        ParseClient.getStudentLocations { results in
-            print(results)
-            
+        ParseClient.getStudentLocations { results in            
             for result in results {
-                let student = StudentInformation(studentLocation: result)
+                let student = StudentInformation(
+                    studentLocation: [
+                        "firstName": "\(result["firstName"]!)",
+                        "lastName": "\(result["lastName"]!)",
+                        "longitude": "\(result["longitude"]!)",
+                        "latitude": "\(result["latitude"]!)",
+                        "objectID": "\(result["objectId"]!)",
+                        "mediaURL": "\(result["mediaURL"]!)",
+                        "uniqueKey": "\(result["uniqueKey"]!)",
+                        "mapString": "\(result["mapString"]!)",
+                        "createdAt": "\(result["createdAt"]!)",
+                        "updatedAt": "\(result["updatedAt"]!)"
+                    ]
+                )
                 students.append(student)
-                print(student)
             }
                         
             if let completionHandler = completionHandler {
                 completionHandler()
             }
         }
-        
-        //        Alamofire.request(.GET, "https://api.parse.com/1/classes/StudentLocation", headers: headers, parameters: ["limit": "100", "order": "-updatedAt"])
-        //            .responseJSON { response in
-        //                let json = JSON(response.result.value!)
-        //                let jsonResults = json["results"]
-        //                for (_,subJSON):(String,JSON) in jsonResults {
-        //                    let student = StudentInformation(studentLocation:
-        //                        ["objectID": subJSON["objectId"].stringValue,
-        //                            "uniqueKey": subJSON["uniqueKey"].stringValue,
-        //                        "firstName": subJSON["firstName"].stringValue,
-        //                        "lastName": subJSON["lastName"].stringValue,
-        //                    "mapString": subJSON["mapString"].stringValue,
-        //                        "mediaURL": subJSON["mediaURL"].stringValue,
-        //                    "latitude": subJSON["latitude"].stringValue,
-        //                        "longitude": subJSON["longitude"].stringValue,
-        //                            "createdAt": subJSON["createdAt"].stringValue,
-        //                        "updatedAt": subJSON["updatedAt"].stringValue,
-        //                        "ACL": subJSON["ACL"].stringValue])
-        //                    students.append(student)
-        //                }
-        //                print(students[0])
-        //                if let completionHandler = completionHandler {
-        //                    dispatch_async(dispatch_get_main_queue()) {
-        //                        completionHandler()
-        //                    }
-        //                }
-        //        }
     }
 }
