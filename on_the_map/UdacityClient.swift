@@ -70,4 +70,35 @@ struct UdacityClient {
         task.resume()
 
     }
+    
+    static func getUser(userKey: String, completionHandler: ((user: [String: String]) -> Void)?) {
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/users/\(userKey)")!)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            if error != nil { // Handle error...
+                return
+            }
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+            
+            let jsonString = NSString(data: newData, encoding: NSUTF8StringEncoding)
+            var json: [String: AnyObject]!
+            
+            do {
+                json = try NSJSONSerialization.JSONObjectWithData((jsonString?.dataUsingEncoding(NSUTF8StringEncoding))!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+            } catch {
+                print(error)
+            }
+            
+            guard let user = json["user"] as? [String: AnyObject],
+                let firstName = user["first_name"] as? String,
+                let lastName = user["last_name"] as? String else {
+                    return
+            }
+            if let completionHandler = completionHandler {
+                completionHandler(user: ["firstName": firstName, "lastName": lastName])
+            }
+        }
+        task.resume()
+       
+    }
 }

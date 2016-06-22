@@ -39,29 +39,6 @@ struct StudentInformation {
     
     static var myself: StudentInformation?
     
-    static func initMyself(userKey: String) {
-        //        Alamofire.request(.GET, "https://www.udacity.com/api/users/\(userKey)")
-        //            .responseString { response in
-        //                switch response.result {
-        //                case .Success:
-        //                    if let result = response.result.value {
-        //                        let jsonString = result.substringFromIndex(result.startIndex.advancedBy(5))
-        //
-        //                        if let dataFromString = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-        //
-        //                            let jsonResult = JSON(data: dataFromString)
-        //                            let lastName = jsonResult["user"]["last_name"].string
-        //                            let firstName = jsonResult["user"]["first_name"].string
-        //                            StudentInformation.myself = StudentInformation(studentLocation: ["firstName": firstName!, "lastName": lastName!, "uniqueKey": userKey])
-        //
-        //                        }
-        //                    }
-        //                case .Failure(let error):
-        //                    print(error)
-        //                }
-        //        }
-        
-    }
     static func postMyself(completionHandler: (() -> Void)?) {
         let headers = [
             "X-Parse-Application-Id": "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr",
@@ -98,6 +75,24 @@ struct StudentInformation {
 
 class StudentData {
     static var students: [StudentInformation] = []
+    static var myself: StudentInformation?
+    
+    static func initMyself(userKey: String) {
+        
+        UdacityClient.getUser(userKey) { user in
+            myself = StudentInformation(
+                studentLocation: [
+                    "firstName": user["firstName"]!,
+                    "lastName": user["lastName"]!,
+                    "uniqueKey": userKey
+                ]
+            )
+        }
+    }
+    
+    static func postMyself(completionHandler: (() -> Void)?) {
+        ParseClient.postStudentLocation(myself!, completionHandler: completionHandler)
+    }
     
     static func initStudentsFromParse(completionHandler: (() -> Void)?) {
         ParseClient.getStudentLocations { results in            

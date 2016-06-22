@@ -23,6 +23,12 @@ class PostMapViewController: UIViewController {
     
     @IBOutlet weak var findOnTheMapLocationTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        submitStudentInfoTextField.delegate = self
+        findOnTheMapLocationTextField.delegate = self
+    }
+    
     @IBAction func cancelPostMap(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -35,6 +41,7 @@ class PostMapViewController: UIViewController {
             let search = MKLocalSearch(request: searchRequest)
             search.startWithCompletionHandler { response, _ in
                 guard let response = response else {
+                    self.displayErrorMessage("Cannot find your location")
                     return
                 }
                 let matchingItems = response.mapItems
@@ -48,9 +55,9 @@ class PostMapViewController: UIViewController {
                     self.submitStudentInfoMap.setRegion(region, animated: true)
                     let studentAnnotation = StudentAnnotation(coordinate: coordinate, title: "", subtitle: "")
                     self.submitStudentInfoMap.addAnnotation(studentAnnotation)
-                    StudentInformation.myself?.latitude = coordinate.latitude.description
-                    StudentInformation.myself?.longitude = coordinate.longitude.description
-                    StudentInformation.myself?.mapString = searchText
+                    StudentData.myself?.latitude = coordinate.latitude.description
+                    StudentData.myself?.longitude = coordinate.longitude.description
+                    StudentData.myself?.mapString = searchText
                 }
             }
             
@@ -61,10 +68,10 @@ class PostMapViewController: UIViewController {
     }
     
     @IBAction func submitStudentInfo(sender: AnyObject) {
-        print(StudentInformation.myself)
+        print(StudentData.myself)
         if let medialURL = submitStudentInfoTextField.text {
-            StudentInformation.myself?.mediaURL = medialURL
-            StudentInformation.postMyself {
+            StudentData.myself?.mediaURL = medialURL
+            StudentData.postMyself {
                 print("Posted myself")
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
@@ -96,10 +103,12 @@ class PostMapViewController: UIViewController {
         findOnTheMapBottom.hidden = true
     }
     
-    func displayErrorMessage(message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(defaultAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+}
+
+extension PostMapViewController: ErrorMessageDisplayer {}
+extension PostMapViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
