@@ -86,6 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if let errorMessage = errorMessage {
             displayErrorMessage(errorMessage)
+            return
         }
 
         UdacityClient.login(email: email!, password: password!, completionHandler: handleLoginOK, errorHandler: handleLoginFailed)
