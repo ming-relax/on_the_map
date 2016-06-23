@@ -53,23 +53,6 @@ struct StudentInformation {
             "latitude": myself!.latitude!,
             "longitude": myself!.longitude!
         ]
-        
-        //        Alamofire.request(.POST, "https://api.parse.com/1/classes/StudentLocation", headers: headers, parameters: parameters, encoding: .JSON)
-        //            .responseJSON { response in
-        //                switch response.result {
-        //                case .Success:
-        //                    print("Posted Student Location")
-        //                    if let completionHandler = completionHandler {
-        //                        dispatch_async(dispatch_get_main_queue()) {
-        //                            completionHandler()
-        //                        }
-        //                    }
-        //                case .Failure:
-        //                    print(response.result)
-        //                    print(parameters)
-        //                }
-        //            }
-        
     }
 }
 
@@ -90,8 +73,8 @@ class StudentData {
         }
     }
     
-    static func postMyself(completionHandler: (() -> Void)?) {
-        ParseClient.postStudentLocation(myself!, completionHandler: completionHandler)
+    static func postMyself(completionHandler: (() -> Void)?, errorHandler: ((errorMsg: String) -> Void)?) {
+        ParseClient.postStudentLocation(myself!, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
     static func initStudentsFromParse(completionHandler: (() -> Void)?) {

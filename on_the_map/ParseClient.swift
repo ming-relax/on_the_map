@@ -9,7 +9,7 @@
 import Foundation
 
 struct ParseClient {
-    static func postStudentLocation(student: StudentInformation, completionHandler: (() -> Void)?) {
+    static func postStudentLocation(student: StudentInformation, completionHandler: (() -> Void)?, errorHandler: ((errorMsg: String) -> Void)?) {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
         request.HTTPMethod = "POST"
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -19,6 +19,12 @@ struct ParseClient {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if error != nil { // Handle error…
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let errorHandler = errorHandler {
+                        errorHandler(errorMsg: "Post error")
+                    }
+                }
+
                 return
             }
             

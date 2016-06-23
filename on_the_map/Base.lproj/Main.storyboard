@@ -611,12 +611,16 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eq1-r0-VXs">
+                                <rect key="frame" x="290" y="246" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hhz-vn-ffp" firstAttribute="leading" secondItem="Vg5-cj-DwV" secondAttribute="leading" id="06H-Be-53X"/>
                             <constraint firstItem="gYQ-CY-MWX" firstAttribute="leading" secondItem="of9-gN-Uxi" secondAttribute="leading" id="1rG-5m-epx"/>
                             <constraint firstItem="gYQ-CY-MWX" firstAttribute="top" secondItem="Vg5-cj-DwV" secondAttribute="top" constant="528" id="73y-Lv-aLr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eq1-r0-VXs" secondAttribute="trailing" constant="270" id="8k4-Gf-l2G"/>
                             <constraint firstItem="gYQ-CY-MWX" firstAttribute="top" secondItem="of9-gN-Uxi" secondAttribute="bottom" constant="43" id="Axf-GS-h2z"/>
                             <constraint firstItem="Hhz-vn-ffp" firstAttribute="top" secondItem="5aI-b6-fWE" secondAttribute="bottom" id="CVE-X1-fFS"/>
                             <constraint firstItem="Uhv-uN-TJI" firstAttribute="top" secondItem="8ZR-uA-d3g" secondAttribute="bottom" id="Hhp-Tf-hfy"/>
@@ -626,9 +630,11 @@
                             <constraint firstItem="gYQ-CY-MWX" firstAttribute="bottom" secondItem="Uhv-uN-TJI" secondAttribute="top" id="Kfo-jn-rP5"/>
                             <constraint firstItem="25V-D9-X6q" firstAttribute="centerX" secondItem="Vg5-cj-DwV" secondAttribute="centerX" id="Oa1-Tb-4kX"/>
                             <constraint firstItem="of9-gN-Uxi" firstAttribute="top" secondItem="Hhz-vn-ffp" secondAttribute="bottom" constant="8" symbolic="YES" id="Xar-oD-Rrz"/>
+                            <constraint firstItem="eq1-r0-VXs" firstAttribute="leading" secondItem="Vg5-cj-DwV" secondAttribute="leadingMargin" constant="270" id="ZUq-LE-iDC"/>
                             <constraint firstAttribute="trailing" secondItem="Hhz-vn-ffp" secondAttribute="trailing" id="gIL-jv-GQC"/>
                             <constraint firstItem="8ZR-uA-d3g" firstAttribute="leading" secondItem="Vg5-cj-DwV" secondAttribute="leading" id="kBq-pW-xxS"/>
                             <constraint firstAttribute="trailing" secondItem="8ZR-uA-d3g" secondAttribute="trailing" id="m3V-Iq-uUu"/>
+                            <constraint firstItem="eq1-r0-VXs" firstAttribute="top" secondItem="5aI-b6-fWE" secondAttribute="bottom" constant="182" id="pfY-bo-fx7"/>
                             <constraint firstItem="25V-D9-X6q" firstAttribute="top" secondItem="8ZR-uA-d3g" secondAttribute="bottom" constant="-98" id="sr0-28-f5Z"/>
                             <constraint firstItem="gYQ-CY-MWX" firstAttribute="leading" secondItem="8ZR-uA-d3g" secondAttribute="leading" id="w4s-vZ-sAN"/>
                         </constraints>
@@ -641,7 +647,6 @@
                                 <exclude reference="of9-gN-Uxi"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Hhp-Tf-hfy"/>
                                 <exclude reference="Oa1-Tb-4kX"/>
                                 <exclude reference="sr0-28-f5Z"/>
                                 <exclude reference="JcJ-oF-pFG"/>
@@ -658,6 +663,7 @@
                                 <exclude reference="Kfo-jn-rP5"/>
                                 <exclude reference="w4s-vZ-sAN"/>
                                 <exclude reference="Xar-oD-Rrz"/>
+                                <exclude reference="Hhp-Tf-hfy"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -669,7 +675,6 @@
                                 <include reference="of9-gN-Uxi"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Hhp-Tf-hfy"/>
                                 <include reference="Oa1-Tb-4kX"/>
                                 <include reference="sr0-28-f5Z"/>
                                 <include reference="JcJ-oF-pFG"/>
@@ -686,6 +691,7 @@
                                 <include reference="Kfo-jn-rP5"/>
                                 <include reference="w4s-vZ-sAN"/>
                                 <include reference="Xar-oD-Rrz"/>
+                                <include reference="Hhp-Tf-hfy"/>
                             </mask>
                         </variation>
                     </view>
@@ -697,6 +703,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="eq1-r0-VXs" id="hEh-Qg-9FG"/>
                         <outlet property="findOnTheMapBottom" destination="gYQ-CY-MWX" id="skh-fR-bqq"/>
                         <outlet property="findOnTheMapLocationTextField" destination="j0g-Kx-EqL" id="jVv-u8-uJA"/>
                         <outlet property="findOnTheMapMiddle" destination="of9-gN-Uxi" id="74O-dL-QhX"/>

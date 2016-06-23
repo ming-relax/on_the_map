@@ -25,7 +25,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     @IBAction func pressLogout(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        UdacityClient.logout(handleLogoutOk, errorHandler: handleLogoutFail)
     }
     
     @IBAction func postMap(sender: AnyObject) {
@@ -33,6 +33,15 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         presentViewController(vc!, animated: true, completion: nil)
 
     }
+    
+    func handleLogoutOk() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func handleLogoutFail(errorMsg: String) {
+        displayErrorMessage(errorMsg)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return StudentData.students.count
     }
@@ -59,3 +68,5 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
 }
+
+extension TableTabbedViewController: ErrorMessageDisplayer {}

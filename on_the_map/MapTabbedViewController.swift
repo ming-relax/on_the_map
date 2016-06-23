@@ -23,14 +23,22 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func pressLogout(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        UdacityClient.logout(handleLogoutOk, errorHandler: handleLogoutFail)
+        
     }
-    
     
     @IBAction func postMap(sender: AnyObject) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostMap")
         presentViewController(vc!, animated: true, completion: nil)
 
+    }
+    
+    func handleLogoutOk() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func handleLogoutFail(errorMsg: String) {
+        displayErrorMessage(errorMsg)
     }
     
     var currentAnnotations: [StudentAnnotation] = []
@@ -85,6 +93,8 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
         
     }
 }
+
+extension MapTabbedViewController: ErrorMessageDisplayer {}
 
 class StudentAnnotation: NSObject, MKAnnotation {
     

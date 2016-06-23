@@ -23,10 +23,14 @@ class PostMapViewController: UIViewController {
     
     @IBOutlet weak var findOnTheMapLocationTextField: UITextField!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         submitStudentInfoTextField.delegate = self
         findOnTheMapLocationTextField.delegate = self
+        activityIndicator.hidden = true
+        activityIndicator.hidesWhenStopped = true
     }
     
     @IBAction func cancelPostMap(sender: AnyObject) {
@@ -39,7 +43,9 @@ class PostMapViewController: UIViewController {
             let searchRequest = MKLocalSearchRequest()
             searchRequest.naturalLanguageQuery = searchText
             let search = MKLocalSearch(request: searchRequest)
+            activityIndicator.startAnimating()
             search.startWithCompletionHandler { response, _ in
+                self.activityIndicator.stopAnimating()
                 guard let response = response else {
                     self.displayErrorMessage("Cannot find your location")
                     return
@@ -67,14 +73,19 @@ class PostMapViewController: UIViewController {
         
     }
     
+    func handlePostOk() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func handlePostError(errorMsg: String) {
+        displayErrorMessage(errorMsg)
+    }
+    
     @IBAction func submitStudentInfo(sender: AnyObject) {
         print(StudentData.myself)
         if let medialURL = submitStudentInfoTextField.text {
             StudentData.myself?.mediaURL = medialURL
-            StudentData.postMyself {
-                print("Posted myself")
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
+            StudentData.postMyself(handlePostOk, errorHandler: handlePostError)
         } else {
             displayErrorMessage("Please fill in some information")
         }
