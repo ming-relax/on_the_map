@@ -20,10 +20,14 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func pressRefresh(sender: AnyObject) {
-        StudentData.initStudentsFromParse {
+        StudentData.initStudentsFromParse({
             self.tableView.reloadData()
-        }
+        },
+        errorHandler: { errorMsg in
+            self.displayErrorMessage(errorMsg)
+        })
     }
+    
     @IBAction func pressLogout(sender: AnyObject) {
         UdacityClient.logout(handleLogoutOk, errorHandler: handleLogoutFail)
     }

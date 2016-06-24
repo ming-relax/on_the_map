@@ -16,10 +16,13 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
 
     
     @IBAction func pressRefresh(sender: AnyObject) {
-        StudentData.initStudentsFromParse {
+        StudentData.initStudentsFromParse ({
             self.map.removeAnnotations(self.currentAnnotations)
             self.addAnnotationsFromStudentInfo()
-        }
+        },
+        errorHandler: { errorMsg in
+            self.displayErrorMessage(errorMsg)
+        })
     }
     
     @IBAction func pressLogout(sender: AnyObject) {

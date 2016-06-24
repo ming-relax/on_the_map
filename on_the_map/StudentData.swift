@@ -76,9 +76,10 @@ class StudentData {
     static func postMyself(completionHandler: (() -> Void)?, errorHandler: ((errorMsg: String) -> Void)?) {
         ParseClient.postStudentLocation(myself!, completionHandler: completionHandler, errorHandler: errorHandler)
     }
+
     
-    static func initStudentsFromParse(completionHandler: (() -> Void)?) {
-        ParseClient.getStudentLocations { results in            
+    static func initStudentsFromParse(completionHandler: (() -> Void)?, errorHandler: ((errorMsg: String) -> Void)?) {
+        ParseClient.getStudentLocations({ results in
             for result in results {
                 let student = StudentInformation(
                     studentLocation: [
@@ -100,6 +101,7 @@ class StudentData {
             if let completionHandler = completionHandler {
                 completionHandler()
             }
-        }
+        },
+        errorHandler: errorHandler)
     }
 }

@@ -66,9 +66,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
         
-        StudentData.initStudentsFromParse {
+        StudentData.initStudentsFromParse({
             self.presentViewController(vc, animated: true, completion: nil)
-        }
+        },
+        errorHandler: { errorMsg in
+            self.displayErrorMessage(errorMsg)
+        })
 
     }
     
