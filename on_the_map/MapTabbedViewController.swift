@@ -46,17 +46,21 @@ class MapTabbedViewController: UIViewController, MKMapViewDelegate {
     
     var currentAnnotations: [StudentAnnotation] = []
     
+    func handleInitStudentError(errorMsg: String) {
+        displayErrorMessage(errorMsg)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         map.delegate = self
         let worldRegion = MKCoordinateRegionMake(map.centerCoordinate, MKCoordinateSpanMake(180, 360))
         map.setRegion(worldRegion, animated: true)
-        
-        addAnnotationsFromStudentInfo()
+
+        StudentData.initStudentsFromParse(addAnnotationsFromStudentInfo, errorHandler: handleInitStudentError)
     }
     
     func addAnnotationsFromStudentInfo() {
-        for student in StudentData.students {
+        for student in StudentInformation.students {
             let studentAnnotation = StudentAnnotation(
                 coordinate: CLLocationCoordinate2D(latitude: NSString(string: student.latitude!).doubleValue, longitude: NSString(string: student.longitude!).doubleValue),
                 title: "\(student.firstName!) \(student.lastName!)",

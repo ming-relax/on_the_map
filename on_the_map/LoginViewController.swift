@@ -66,13 +66,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let vc: UITabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("OnTheMap") as! UITabBarController
         
-        StudentData.initStudentsFromParse({
-            self.presentViewController(vc, animated: true, completion: nil)
-        },
-        errorHandler: { errorMsg in
-            self.displayErrorMessage(errorMsg)
-        })
-
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func handleLoginFailed(errorMsg: String) {

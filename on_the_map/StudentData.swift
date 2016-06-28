@@ -54,10 +54,11 @@ struct StudentInformation {
             "longitude": myself!.longitude!
         ]
     }
+    
+    static var students: [StudentInformation] = []
 }
 
 class StudentData {
-    static var students: [StudentInformation] = []
     static var myself: StudentInformation?
     
     static func initMyself(userKey: String) {
@@ -95,13 +96,17 @@ class StudentData {
                         "updatedAt": "\(result["updatedAt"]!)"
                     ]
                 )
-                students.append(student)
+                StudentInformation.students.append(student)
             }
                         
             if let completionHandler = completionHandler {
                 completionHandler()
             }
         },
-        errorHandler: errorHandler)
+        errorHandler: { errorMsg in
+            if let errorHandler = errorHandler {
+                errorHandler(errorMsg: errorMsg)
+            }
+        })
     }
 }

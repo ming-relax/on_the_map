@@ -13,10 +13,15 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var tableView: UITableView!
     
+    func handleInitStudentError(errorMsg: String) {
+        displayErrorMessage(errorMsg)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
-        
+        StudentData.initStudentsFromParse(nil, errorHandler: handleInitStudentError)
+
     }
     
     @IBAction func pressRefresh(sender: AnyObject) {
@@ -47,7 +52,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StudentData.students.count
+        return StudentInformation.students.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -55,8 +60,8 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCellWithIdentifier("OnTheMapCell", forIndexPath: indexPath)
         let icon = UIImage(named: "pin")
         
-        let firstName = StudentData.students[indexPath.row].firstName!
-        let lastName = StudentData.students[indexPath.row].lastName!
+        let firstName = StudentInformation.students[indexPath.row].firstName!
+        let lastName = StudentInformation.students[indexPath.row].lastName!
         let name = "\(firstName) \(lastName)"
         
         cell.imageView!.image = icon
@@ -66,7 +71,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let url = NSURL(string: StudentData.students[indexPath.row].mediaURL!) {
+        if let url = NSURL(string: StudentInformation.students[indexPath.row].mediaURL!) {
             UIApplication.sharedApplication().openURL(url)
         }
     }

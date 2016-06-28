@@ -46,8 +46,20 @@ struct ParseClient {
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil { // Handle error...
+            print(response)
+            if error != nil {
                 print("Error downloading from parse")
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let errorHandler = errorHandler {
+                        errorHandler(errorMsg: "Error downloading data from parse")
+                    }
+                }
+                
+                return
+            }
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            if httpResponse.statusCode != 200 {
                 dispatch_async(dispatch_get_main_queue()) {
                     if let errorHandler = errorHandler {
                         errorHandler(errorMsg: "Error downloading data from parse")
